@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Application</title>
+</head>
+<body ng-app="app">
+
+    <main ng-controller='mainCtrl'>
+        Titre : {{title}}
+        <hr>
+        List of users:
+        <br>
+        <button ng-click="loadData()">Load List</button>
+        <ul>
+            <li ng-repeat="user in users">{{user.name}}</li>
+        </ul>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script>
+        angular.module('app',[])
+            .controller('mainCtrl', MainCtrl);
+
+        function MainCtrl($scope, $http){
+
+            var API = 'http://jsonplaceholder.typicode.com/users';
+
+            $scope.title = 'Hello World';
+
+            $scope.users = [];
+
+            $scope.loadData = function () {
+                console.log('loading...');
+                $http.get(API).then(function(res){
+                    console.table(res.data);
+                    $scope.users = res.data;
+                });
+            }
+        }
+    </script>
+</body>
+</html>

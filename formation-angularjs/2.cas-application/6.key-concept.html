@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premiere Application</title>
+</head>
+<body ng-app="app" >
+    <!-- kebab-case CamelCase  //   fontFamily > font-family -->
+    <user-list></user-list>
+    <user-list></user-list>
+    <user-list></user-list>
+    <!-- <div user-list></div> -->
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script> 
+        angular.module( 'app' , [ ] )
+                    .controller( 'mainCtrl' , MainCtrl )
+                    .directive( 'userList' , userListDirective )
+                    .service( 'UserService' , UserService )
+                    .filter( 'appUser' , appUserFilter );
+        
+        function MainCtrl($scope, UserService){
+            $scope.title = 'Hello World';
+            $scope.users = UserService.users;
+        }
+
+        function userListDirective(){ 
+            return /* DDO Directive Definition Object*/ {
+                restrict:'E', // A ?
+                template:'<div>List of users :<ul><li ng-repeat="name in users">{{name | appUser }}</li></ul></div>',
+                controller: 'mainCtrl' 
+            }
+
+        }
+
+        function UserService(){
+            this.users = [
+                'Corinne',
+                'Khaled',
+                'Alexandre',
+                'Valentin',
+                'Renaud'
+            ];
+        }
+
+        function appUserFilter(){
+            return function(value){
+                return 'Happy User  : ' + value;
+            }
+        }
+
+    </script>
+</body>
+</html>
