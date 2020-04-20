@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Application</title>
+</head>
+<body ng-app="app">
+
+    <main ng-controller='mainCtrl'>
+        Titre : {{title}}
+        <br>
+        <button ng-click="doClick()"> 😀</button>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+    <script>
+        angular.module('app',[])
+            .controller('mainCtrl', MainCtrl);
+
+        function MainCtrl($scope){
+            $scope.title = 'Hello World';
+
+            $scope.doClick = function() {
+                $scope.title += '😀';
+            }
+        }
+    </script>
+</body>
+</html>
