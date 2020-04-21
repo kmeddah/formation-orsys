@@ -1,5 +1,12 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">Search :</h5>
+        <form class="form-inline" name="search">
+            <input type="text" class="form-control" ng-model="keyword" placeholder="Type a keyword" required ng-keypress="doKey($event)" ng-pattern="/^[a-zA-Z0-9 ]{3,}$/">
+            <button type="button" class="btn btn-primary" ng-click="doClick()" ng-disabled="search.$invalid">Search</button>
+        </form>
+        <span class="badge badge-pill"
+            ng-click="keyword = key && doClick()"
+            ng-repeat="key in pastKeywords track by $index">{{key}}</span>
     </div>
 </div>

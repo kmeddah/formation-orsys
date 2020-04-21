@@ -1,5 +1,15 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">List of Images</h5>
+        <div class="card" ng-repeat="image in images" style="width: 31%;float:left;height:380px;margin:10px;" >
+            <div style="overflow:hidden;height:350px;">
+                <img ng-src="{{image.links[0].href}}" class="card-img-top" ng-click="open = !open" ng-mouseleave="open=false" style="transform:scale(3)">
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">{{image.data[0].title}}</h5>
+              <p class="card-text" ng-if="open">{{image.data[0].description }}</p>
+            </div>
+          </div> 
     </div>
 </div>

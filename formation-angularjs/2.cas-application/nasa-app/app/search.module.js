@@ -10,6 +10,26 @@ function searchComponent() {
     }
 }
 
-function searchController($scope, ImageService) {
+/**
+ * Mapper un champ de recherche
+ * ng-model -> keyword
+ */
 
+searchController.$inject = ['$scope', 'ImageService']
+function searchController($scope, ImageService) {
+    
+    $scope.keyword = '';
+    $scope.pastKeywords = ImageService.pastSearches;
+
+    $scope.doClick = function() {
+        // console.log($scope.keyword);
+        ImageService.search($scope.keyword);
+        $scope.keyword = '';
+    }
+
+    $scope.doKey = function($event) {
+        if ($event.keyCode == 13) {
+            $scope.doClick();
+        }
+    }
 }
