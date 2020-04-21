@@ -12,10 +12,10 @@ function ImageService($http){
 
     this.images = [];
 
-    this.pastSearches = [];
+    this.pastSearches = Object.keys(this.cacheData) || []; 
 
     this.cacheData = JSON.parse(window.sessionStorage.getItem('CACHE')) ||  {};
-    
+
     this.search = function(keyword) {
 
         if (this.cacheData[keyword]) {
@@ -35,7 +35,7 @@ function ImageService($http){
 
     this.save = function(keyword) {
         this.pastSearches.push(keyword);
-
+        window.sessionStorage.setItem('CACHE', JSON.stringify(this.cacheData) ) ;
         this.cacheData[keyword] = this.images;
     }
 }
