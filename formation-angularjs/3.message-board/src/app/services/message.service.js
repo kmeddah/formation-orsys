@@ -7,15 +7,15 @@
 
     angular
         .module(moduleName, dependencies )
-        .config(presStart)
-        .run(start);
+        .service('MessageService', Service);
+    
+        function Service () {
+            this.send = function () {
+                console.log(data);
+            }
 
-    function presStart() {
-        console.log('config', moduleName);
-    }
-
-    function start() {
-        console.log('run', moduleName);
-    }
-
+            this.fetch = function () {
+                console.log(data);
+            }
+        }
 })();

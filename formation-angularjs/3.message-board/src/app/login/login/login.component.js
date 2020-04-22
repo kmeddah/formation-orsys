@@ -20,8 +20,8 @@
         }
     }
 
-    Controller.$inject = ['$scope'];
-    function Controller($scope){
+    Controller.$inject = ['$scope', 'DispatcherService'];
+    function Controller($scope, DispatcherService){
         console.warn(moduleName);
 
         $scope.subscribing = false;
@@ -40,12 +40,16 @@
             console.groupCollapsed(evt.name);
             console.table($scope.credentials);
             console.groupEnd();
+
+            DispatcherService.dispatch({type:'USER_CONNECT', payload:$scope.credentials});
         })
 
         $scope.$on('CREATE', function(evt,data){
             console.groupCollapsed(evt.name);
             console.table($scope.credentials);
             console.groupEnd();
+
+            DispatcherService.dispatch({type:'USER_CREATE', payload:$scope.credentials});
         })
     }
 

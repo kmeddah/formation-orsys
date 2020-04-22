@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "username": "",
+      "email": "kd@yopmail.fr",
+      "fullname": "Khaled MEDDAH",
+      "id": 1
+    },
+    {
+      "username": "",
+      "email": "khaled.meddah@yopmail.fr",
+      "fullname": "Khkaled Meddah",
+      "id": 2
+    },
+    {
+      "username": "khaled",
+      "email": "toto@yopmail.Fr",
+      "fullname": "Khaled mEDDAH",
+      "id": 3
+    },
+    {
+      "username": "khaled",
+      "email": "toto@yopmail.Fr",
+      "fullname": "Khaled mEDDAH",
+      "id": 4
+    },
+    {
+      "username": "khaled",
+      "email": "toto@yopmail.Fr",
+      "fullname": "toto",
+      "id": 5
+    }
+  ],
+  "messages": []
+}

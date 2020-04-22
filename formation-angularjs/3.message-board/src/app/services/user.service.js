@@ -1,21 +1,27 @@
-(function(){ // IIFE 
-    'use strict'; 
+(function () { // IIFE 
+    'use strict';
 
     var moduleName = 'user.service';
     var dependencies = [];
     var folder = 'app/services';
 
     angular
-        .module(moduleName, dependencies )
-        .config(presStart)
-        .run(start);
+        .module(moduleName, dependencies)
+        .service('UserService', Service);
 
-    function presStart() {
-        console.log('config', moduleName);
-    }
+    Service.$inject = ['$http']
+    function Service($http) {
 
-    function start() {
-        console.log('run', moduleName);
+        var API = 'http://localhost:5050/users';
+
+        this.connect = function (data){
+            console.log(data);
+        }
+
+        this.create = function(data) {
+            console.log(data);
+            return $http.post(API, data);
+        }
     }
 
 })();
