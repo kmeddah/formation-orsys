@@ -1,0 +1,31 @@
+<hr />
+<form class="form-inline" name="connect">
+  <div class="d-flex flex-column" style="width: 100%;">
+    <label>Full Name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Your Full Name"
+      ng-model="credentials.fullname"
+      required
+    />
+    <label>Email</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Your Email"
+      ng-model="credentials.email"
+      required
+    />
+
+    <button
+      style="margin-top: 20px;"
+      type="button"
+      ng-click="create()"
+      class="btn btn-primary btn-block"
+      ng-disabled="connect.$invalid"
+    >
+      Create my account now !
+    </button>
+  </div>
+</form>

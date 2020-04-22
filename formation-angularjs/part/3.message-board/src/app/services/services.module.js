@@ -1,13 +1,13 @@
 (function(){ // IIFE 
     'use strict'; 
 
-    var moduleName = 'app.module';
+    var moduleName = 'services.module';
     var dependencies = [
-        'services.module',
-        'login.module',
-        'chat.module'
+        'dispatcher.service',
+        'user.service',
+        'message.service'
     ];
-    var folder = 'app';
+    var folder = 'app/services';
 
     angular
         .module(moduleName, dependencies )
@@ -18,8 +18,8 @@
         console.log('config', moduleName);
     }
 
-    function start($rootScope) {
-        console.log('run', moduleName);        
+    function start() {
+        console.log('run', moduleName);
     }
 
 })();

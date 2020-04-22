@@ -18,8 +18,8 @@
         console.log('config', moduleName);
     }
 
-    function start($rootScope) {
-        console.log('run', moduleName);        
+    function start() {
+        console.log('run', moduleName);
     }
 
 })();

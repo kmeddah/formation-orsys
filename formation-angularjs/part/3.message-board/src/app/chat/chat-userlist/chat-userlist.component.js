@@ -9,19 +9,16 @@
         .module(moduleName, dependencies )
         .config(presStart)
         .run(start)
-        .directive('chatUserlistComponent',  Directive)
-
-        function Directive(){
-            return {
-                restrict:'E',
-                templateUrl: folder + '/' + moduleName + '.html',
-                controller:Controller
-            }
-        }
+        .directive('chatUserListComponent', Directive)
     
-        function Controller(){
-            console.warn(moduleName)
+    function Directive() {
+        return {
+            restrict:'E',
+            templateUrl: folder + '/' + moduleName + '.html',
+            controller:Controller
         }
+    }
+
 
     function presStart() {
         console.log('config', moduleName);

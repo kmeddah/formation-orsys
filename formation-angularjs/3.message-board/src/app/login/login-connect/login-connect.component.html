@@ -1,0 +1,22 @@
+<form class="form-inline" name="login">
+  <code>{{ title }}{{ version }}</code>
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Username"
+      ng-model="credentials.username"
+      required
+    />
+
+    <button type="button" class="btn btn-primary" 
+      ng-click="connect()"
+      ng-disabled="login.$invalid || credentials.email  || credentials.fullname ">
+      Connect
+    </button>
+  </div>
+
+  <div>
+    <a href="#" ng-click="subscribe()">Or create an account.</a>
+  </div>
+</form>

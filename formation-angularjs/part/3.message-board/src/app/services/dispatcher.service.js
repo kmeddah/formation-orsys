@@ -1,19 +1,14 @@
 (function(){ // IIFE 
     'use strict'; 
 
-    var moduleName = 'login.module';
-    var dependencies = [
-        'login.component',
-        'login-connect.component',
-        'login-create.component'
-    ];
-    var folder = 'app/login';
+    var moduleName = 'dispatcher.service';
+    var dependencies = [];
+    var folder = 'app/services';
 
     angular
         .module(moduleName, dependencies )
         .config(presStart)
-        .run(start)
-
+        .run(start);
 
     function presStart() {
         console.log('config', moduleName);
