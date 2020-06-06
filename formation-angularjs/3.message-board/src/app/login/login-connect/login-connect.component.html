@@ -1,11 +1,11 @@
 <form class="form-inline" name="login">
-  <code>{{ title }}{{ version }}</code>
+  <code>{{ $ctrl.title }}{{ version }}</code>
   <div class="input-group">
     <input
       type="text"
       class="form-control"
       placeholder="Username"
-      ng-model="credentials.username"
+      ng-model="$ctrl.credentials.username"
       required
     />
 

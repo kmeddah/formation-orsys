@@ -1,45 +1,32 @@
-(function(){ // IIFE 
-    'use strict'; 
+(function () { // IIFE 
+    'use strict';
 
     var moduleName = 'login-connect.component';
     var dependencies = [];
     var folder = 'app/login/login-connect';
 
     angular
-        .module(moduleName, dependencies )
-        .config(presStart)
-        .run(start)
-        .directive('loginConnectComponent',  Directive)
+        .module(moduleName, dependencies)
+        .component('loginConnectComponent'), {
+        templateUrl: folder + '/' + moduleName + '.html',
+        bindings:{
+            credentials: '<'
+        },
+        controller: Controller
+    }
 
-        function Directive(){
-            return {
-                restrict:'E',
-                templateUrl: folder + '/' + moduleName + '.html',
-                scope:{
-                    credentials:'='
-                },
-                controller:Controller
-            }
+    function Controller($scope) {
+
+        this.title = 'Please login';
+
+        $scope.subscribe = function () {
+            $scope.$emit('SUBSCRIBE', true);
         }
+
+        $scope.connect = function () {
+            $scope.$emit('CONNECT', true);
+        }
+    }
+
     
-        function Controller($scope){
-            console.warn(moduleName)
-
-            $scope.subscribe = function(){
-                $scope.$emit('SUBSCRIBE', true);
-            }
-
-            $scope.connect = function(){
-                $scope.$emit('CONNECT', true);
-            }
-        }
-
-    function presStart() {
-        console.log('config', moduleName);
-    }
-
-    function start() {
-        console.log('run', moduleName);
-    }
-
 })();
